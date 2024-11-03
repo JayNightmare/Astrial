@@ -20,14 +20,11 @@
 </div>
 
 <div align="center">
-  <!-- <div>
-    <a href="https://top.gg/bot/1278098225353719869">
-      <img src="https://top.gg/api/widget/upvotes/1278098225353719869.svg">
+  <div>
+    <a href="https://top.gg/bot/1050445107389804646">
+      <img src="https://top.gg/api/widget/upvotes/1050445107389804646.svg">
     </a>
-    <a href="https://discord.com/application-directory/1278098225353719869">
-      <p>Discord App Directory</p>
-    </a>
-  </div> -->
+  </div>
 </div>
 
 <br/>
