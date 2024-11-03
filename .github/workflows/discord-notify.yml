@@ -1,0 +1,24 @@
+name: Notify Discord
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow only when pushing to the main branch
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        
+      - name: Discord Commits
+        uses: Sniddl/discord-commits@v1.6
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          include-extras: true
+          template: "avatar-with-link"
+          last-commit-only: false
+          embed: '{ "title": "{{ commit.title }}", "description": "{{ commit.description }}", "url": "{{ commit.url }}", "author": { "name": "{{ commit.author.name }} ({{ commit.author.username }})", "icon_url": "https://github.com/{{ commit.author.username }}.png"} }'
+          
