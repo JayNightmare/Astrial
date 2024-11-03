@@ -14,6 +14,7 @@
       <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/JayNightmare/ASTRIAL?color=0088ff" />
     </a>
     <br/>
+    <br/>
     <a href="https://www.codefactor.io/repository/github/JayNightmare/Astrial">
       <img src="https://www.codefactor.io/repository/github/JayNightmare/Astrial/badge">
     </a>
@@ -21,9 +22,11 @@
       <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
     </a>
     <br/>
+    <br/>
     <a href="https://opensource.org/licenses/MIT">
       <img src="https://img.shields.io/github/v/release/JayNightmare/Astrial">
     </a>
+    <br/>
     <br/>
     <a href="https://discord.gg/U5ZszEc6tt">
         <img src="https://img.shields.io/discord/1236993916742668400?color=5865F2&logo=discord&logoColor=white" alt="Discord server" />
@@ -31,29 +34,37 @@
     <br/>
 </div>
 
+---
+
 <div align="center">
-    <p>--------</p>
+    <br/>
     <p>Dependency Checker</p>
     <a href="https://github.com/JayNightmare/ASTRIAL/actions/workflows/node.js.yml">
       <img alt="Node.js CI" src="https://github.com/JayNightmare/ASTRIAL/actions/workflows/node.js.yml/badge.svg"/>
     </a>
     <br/>
+    <br/>
 </div>
 
+---
+
 <div align="center">
-    <p>--------</p>
+    <br/>
     <p>Bot Votes</p>
     <a href="https://top.gg/bot/1050445107389804646">
       <img src="https://top.gg/api/widget/upvotes/1050445107389804646.svg">
     </a>
     <br/>
+    <br/>
 </div>
 
-<br/>
+-----
 
 <div align="center">
     <p></p>
 </div>
+<br/>
+<br/>
 
 <div align=center>
 
