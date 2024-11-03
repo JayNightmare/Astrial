@@ -30,17 +30,13 @@
 <br/>
 
 <div align="center">
-    <p>Bot was made for Iron Valor Discord Server as a commission. If you want your own custom Discord Bot, contact me via</p> 
+    <p></p> 
 </div>
 
 <div align=center>
 
 # BOT READY FOR PRODUCTION
 
-</div>
-
-<div align="center">
-    <a href=https://www.fiverr.com/s/bdoQ9mN style="font-size: 45px;  font-weight: bold;">Fiverr</a>
 </div>
 
 ## Have a bug?
