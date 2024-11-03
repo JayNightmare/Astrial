@@ -3,7 +3,7 @@
 </div>
 <h1 align="center">Astrial Music Bot</h1>
 <div align="center">
-    <p>Says "repo not found" due to repo being private. Make repo public to fix this</p>
+    <p>Repo Stats</p>
     <a href="https://github.com/JayNightmare/ASTRIAL/graphs/contributors">
       <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/JayNightmare/ASTRIAL?color=2db94d" />
     </a>
@@ -13,6 +13,27 @@
     <a href="https://github.com/JayNightmare/ASTRIAL/pulls">
       <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/JayNightmare/ASTRIAL?color=0088ff" />
     </a>
+    <br/>
+    <a href="https://www.codefactor.io/repository/github/JayNightmare/Astrial">
+      <img src="https://www.codefactor.io/repository/github/JayNightmare/Astrial/badge">
+    </a>
+    <a href="https://opensource.org/licenses/MIT">
+      <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
+    </a>
+    <br/>
+    <a href="https://opensource.org/licenses/MIT">
+      <img src="https://img.shields.io/github/v/release/JayNightmare/Astrial">
+    </a>
+    <br/>
+    <a href="https://discord.gg/U5ZszEc6tt">
+        <img src="https://img.shields.io/discord/1236993916742668400?color=5865F2&logo=discord&logoColor=white" alt="Discord server" />
+    </a>
+    <br/>
+</div>
+
+<div align="center">
+    <p>--------</p>
+    <p>Dependency Checker</p>
     <a href="https://github.com/JayNightmare/ASTRIAL/actions/workflows/node.js.yml">
       <img alt="Node.js CI" src="https://github.com/JayNightmare/ASTRIAL/actions/workflows/node.js.yml/badge.svg"/>
     </a>
@@ -20,17 +41,18 @@
 </div>
 
 <div align="center">
-  <div>
+    <p>--------</p>
+    <p>Bot Votes</p>
     <a href="https://top.gg/bot/1050445107389804646">
       <img src="https://top.gg/api/widget/upvotes/1050445107389804646.svg">
     </a>
-  </div>
+    <br/>
 </div>
 
 <br/>
 
 <div align="center">
-    <p></p> 
+    <p></p>
 </div>
 
 <div align=center>
