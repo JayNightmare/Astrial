@@ -1,20 +1,20 @@
 <div align="center">
-    <!-- <img src="./image.png" height="128" style="border-radius: 99999px"> -->
+    <img src="./image.png" height="128" style="border-radius: 99999px">
 </div>
 <h1 align="center">Astrial Music Bot</h1>
 <div align="center">
     <p>Says "repo not found" due to repo being private. Make repo public to fix this</p>
-    <a href="https://github.com/JayNightmare/Old-School-RuneScape/graphs/contributors">
-      <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/JayNightmare/Old-School-RuneScape?color=2db94d" />
+    <a href="https://github.com/JayNightmare/ASTRIAL/graphs/contributors">
+      <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/JayNightmare/ASTRIAL?color=2db94d" />
     </a>
-    <a href="https://github.com/JayNightmare/Old-School-RuneScape/issues">
-      <img alt="Issues" src="https://img.shields.io/github/issues/JayNightmare/Old-School-RuneScape?color=0088ff" />
+    <a href="https://github.com/JayNightmare/ASTRIAL/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/JayNightmare/ASTRIAL?color=0088ff" />
     </a>
-    <a href="https://github.com/JayNightmare/Old-School-RuneScape/pulls">
-      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/JayNightmare/Old-School-RuneScape?color=0088ff" />
+    <a href="https://github.com/JayNightmare/ASTRIAL/pulls">
+      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/JayNightmare/ASTRIAL?color=0088ff" />
     </a>
-    <a href="https://github.com/JayNightmare/Old-School-RuneScape/actions/workflows/node.js.yml">
-      <img alt="Node.js CI" src="https://github.com/JayNightmare/Old-School-RuneScape/actions/workflows/node.js.yml/badge.svg"/>
+    <a href="https://github.com/JayNightmare/ASTRIAL/actions/workflows/node.js.yml">
+      <img alt="Node.js CI" src="https://github.com/JayNightmare/ASTRIAL/actions/workflows/node.js.yml/badge.svg"/>
     </a>
     <br/>
 </div>
