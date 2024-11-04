@@ -13,7 +13,7 @@
     <a href="https://github.com/JayNightmare/ASTRIAL/pulls">
       <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/JayNightmare/ASTRIAL?color=0088ff" />
     </a>
-    <br/>
+    <br/> 
     <br/>
     <a href="https://www.codefactor.io/repository/github/JayNightmare/Astrial">
       <img src="https://www.codefactor.io/repository/github/JayNightmare/Astrial/badge">
