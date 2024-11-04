@@ -16,6 +16,8 @@ const Deezer = require("kazagumo-deezer");
 const Apple = require("kazagumo-apple");
 const Topgg = require("@top-gg/sdk");
 
+// //
+
 class MainClient extends Client {
   constructor() {
     super({
@@ -90,6 +92,7 @@ class MainClient extends Client {
       require(`../handlers/${x}`)(client)
     );
   }
+
   async ConnectMongo() {
     console.log("Connecting to Mongo....");
     mongoose.set("strictQuery", true);
@@ -102,7 +105,13 @@ class MainClient extends Client {
       require(`${process.cwd()}/src/events/${file}`)(this);
       console.log(`> ${eventName} Events Loaded !!`);
     });
+  }1
+
+  async loadUtils() {
+    require(`../utils-functions/utils-slash-commands/setupCommands.js`)(this);
+    console.log(`> setupCommands.js loaded !!`);
   }
+
   connect() {
     return super.login(this.config.token);
   }

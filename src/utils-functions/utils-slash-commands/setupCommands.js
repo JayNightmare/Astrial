@@ -1,15 +1,17 @@
-const { SlashCommandBuilder, Routes, PermissionsBitField } = require("discord.js");
+const { SlashCommandBuilder, REST, Routes, PermissionsBitField } = require("discord.js");
 require('dotenv').config(); // * Keep me above REST
-const rest = new REST({ version: '10' }).setToken(process.env.LIVE_TOKEN);
+const rest = new REST({ version: '10' }).setToken(process.env.TEST_TOKEN);
 
-async function setupCommands() {
+module.exports = async (client) => {
+    console.log(process.env.TEST_TOKEN);
     const guilds = await client.guilds.fetch();
-
+    console.log(guilds);
+    
     const commands = [
         // //
         /*
-         * Author Of Slash Commands:
-         * @JayNightmare
+            * Author Of Slash Commands:
+            * @JayNightmare
         */
         // //
         // ! Help Command
@@ -133,6 +135,4 @@ async function setupCommands() {
     } catch(err) {
         console.error("Error refreshing application commands:", err);
     }
-}
-
-module.exports = { setupCommands };
+};
