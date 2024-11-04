@@ -27,7 +27,14 @@ module.exports = {
     }
     if (!args[0]) {
       await player.skip();
-      return message.react("<:Correct:1301128918614671403>");
+      // return message.react("<:Correct:1301128918614671403>");
+      return message.channel.send({
+        embeds: [
+          new EmbedBuilder()
+            .setColor(client.config.color)
+            .setDescription(`<:Correct:1301128918614671403> | Skipped the song.`),
+        ],
+      });
     }
 
     if (isNaN(args[0]))

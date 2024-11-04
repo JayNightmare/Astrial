@@ -1,9 +1,6 @@
 const {
-  Message,
-  PermissionFlagsBits,
   EmbedBuilder,
   PermissionsBitField,
-  SlashCommandBuilder,
 } = require("discord.js");
 const reconnectAuto = require("../../models/reconnect.js");
 
@@ -14,8 +11,8 @@ module.exports = {
   name: commandName,
   aliases: ["247"],
   description: commandDescription,
-  userPermissions: PermissionFlagsBits.ManageGuild,
-  botPermissions: PermissionFlagsBits.Speak,
+  userPermissions: PermissionsBitField.Flags.ManageGuild,
+  botPermissions: PermissionsBitField.Flags.Speak,
   cooldowns: 5,
   category: "Config",
   inVc: true,
@@ -94,17 +91,9 @@ module.exports = {
 
   alwaysInVC: {
     execute: async (client, interaction) => {
-      if (!interaction.member.voice.channel?.permissionsFor(interaction.guild.members.me).has(PermissionsBitField.Flags.Connect)) {
-        return interaction.reply({ content: `${client.emoji.cross} | I don't have permission to join your voice channel!`, ephemeral: true });
-      }
-
-      if (!interaction.member.voice.channel?.permissionsFor(interaction.guild.members.me).has(PermissionsBitField.Flags.Speak)) {
-        return interaction.reply({ content: `${client.emoji.cross} | I don't have permission to speak in your voice channel!`, ephemeral: true });
-      }
-      
-      if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageGuild)) {
-        return interaction.reply({ content: `You don't have enough Permissions!`, ephemeral: true });
-      }
+      if (!interaction.member.voice.channel?.permissionsFor(interaction.guild.members.me).has(PermissionsBitField.Flags.Connect)) { return interaction.reply({ content: `${client.emoji.cross} | I don't have permission to join your voice channel!`, ephemeral: true }); }
+      if (!interaction.member.voice.channel?.permissionsFor(interaction.guild.members.me).has(PermissionsBitField.Flags.Speak)) { return interaction.reply({ content: `${client.emoji.cross} | I don't have permission to speak in your voice channel!`, ephemeral: true }); }
+      if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageGuild)) { return interaction.reply({ content: `You don't have enough Permissions!`, ephemeral: true }); }
 
       try {
         const data = await reconnectAuto.findOne({ GuildId: interaction.guild.id });

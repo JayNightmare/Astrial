@@ -1,5 +1,5 @@
 const { EmbedBuilder, Events } = require("discord.js");
- 
+
 // ! Import command logic
 
 // //
@@ -83,6 +83,7 @@ const lyricsCommand = require('../commands/Music/lyrics.js');
 const nowPlayingCommand = require('../commands/Music/nowplaying.js');
 const pauseCommand = require('../commands/Music/pause.js');
 const playCommand = require('../commands/Music/play.js');
+const playlistCommand = require('../commands/Music/playlist.js');
 const queueCommand = require('../commands/Music/queue.js');
 const removeCommand = require('../commands/Music/remove.js');
 const replayCommand = require('../commands/Music/replay.js');
@@ -190,6 +191,7 @@ module.exports = async (client) => {
             // //
             // ? Music Commands
             // TODO : Music Commands
+            if (commandName === 'playlist') { console.log(`playlist command ran`); await playlistCommand.playlist.execute(client, interaction); }
             // //
             // ? Owner Commands
             // TODO : Owner Commands

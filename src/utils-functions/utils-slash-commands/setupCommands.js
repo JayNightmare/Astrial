@@ -87,13 +87,22 @@ module.exports = async (client) => {
 
         // //
 
-        // ! Info Commands 
+        // ! Info Commands
         // TODO : Add Commands
         
-        // // 
+        // //
 
         // ! Music Commands
         // TODO : Add Commands
+
+        // ? Playlist Command
+        new SlashCommandBuilder()
+            .setName('playlist')
+            .setDescription('Create a playlist for the server')
+            .addStringOption(option =>
+                option.setName('url')
+                    .setDescription('URL of the playlist')
+                    .setRequired(true)),
 
         // //
 
