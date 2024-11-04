@@ -15,6 +15,7 @@ const { ClusterClient, getInfo } = require("discord-hybrid-sharding");
 const Deezer = require("kazagumo-deezer");
 const Apple = require("kazagumo-apple");
 const Topgg = require("@top-gg/sdk");
+require('dotenv').config(); // * Keep me above REST
 
 // //
 

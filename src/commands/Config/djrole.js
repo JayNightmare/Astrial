@@ -77,6 +77,7 @@ module.exports = {
     }
   },
 
+  // TODO : Fix Interaction Try/Catch
   djRole: {
     execute: async (client, interaction) => {
       if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageGuild))

@@ -3,10 +3,15 @@ require('dotenv').config(); // * Keep me above REST
 const rest = new REST({ version: '10' }).setToken(process.env.TEST_TOKEN);
 
 module.exports = async (client) => {
-    console.log(process.env.TEST_TOKEN);
+    if (!client.isReady()) {
+        console.log("Client not ready, waiting...");
+        await new Promise(resolve => client.once('ready', resolve));
+    }
+
+    console.log("Client is ready, proceeding with setup");
+
     const guilds = await client.guilds.fetch();
-    console.log(guilds);
-    
+
     const commands = [
         // //
         /*

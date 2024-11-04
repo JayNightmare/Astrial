@@ -70,4 +70,6 @@ module.exports = {
       return message.reply("<:cross:1301129244855763027> | Invalid type. Please use `text`, `voice`, or `reset`.");
     }
   },
+
+  // TODO : Add Slash Logic
 };

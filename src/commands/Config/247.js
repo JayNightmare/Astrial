@@ -94,69 +94,48 @@ module.exports = {
 
   alwaysInVC: {
     execute: async (client, interaction) => {
-      if (
-        !interaction.member.voice.channel
-          .permissionsFor(interaction.reply.guild.members.me)
-          .has(PermissionsBitField.Flags.ViewChannel)
-      )
-        return interaction.reply(
-          `${client.emoji.cross} | I don't have permission to view your voice channel!`
-        );
+      if (!interaction.member.voice.channel?.permissionsFor(interaction.guild.members.me).has(PermissionsBitField.Flags.Connect)) {
+        return interaction.reply({ content: `${client.emoji.cross} | I don't have permission to join your voice channel!`, ephemeral: true });
+      }
 
-      if (
-        !interaction.reply.member.voice.channel
-          .permissionsFor(interaction.reply.guild.members.me)
-          .has(PermissionsBitField.Flags.Connect)
-      )
-        return interaction.reply(
-          `${client.emoji.cross} | I don't have permission to join your voice channel!`
-        );
+      if (!interaction.member.voice.channel?.permissionsFor(interaction.guild.members.me).has(PermissionsBitField.Flags.Speak)) {
+        return interaction.reply({ content: `${client.emoji.cross} | I don't have permission to speak in your voice channel!`, ephemeral: true });
+      }
+      
+      if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageGuild)) {
+        return interaction.reply({ content: `You don't have enough Permissions!`, ephemeral: true });
+      }
 
-      if (
-        !interaction.reply.member.voice.channel
-          .permissionsFor(interaction.reply.guild.members.me)
-          .has(PermissionsBitField.Flags.Speak)
-      )
-        return interaction.reply.reply(
-          `${client.emoji.cross} | I don't have permission to speak in your voice channel!`
-        );
-
-      if (!interaction.reply.member.permissions.has(PermissionsBitField.Flags.ManageGuild))
-        return interaction.reply(`You don't have enough Permissions !!`);
       try {
-        const data = await reconnectAuto.findOne({ GuildId: interaction.reply.guild.id });
+        const data = await reconnectAuto.findOne({ GuildId: interaction.guild.id });
         if (data) {
-          await reconnectAuto.findOneAndDelete({ GuildId: interaction.reply.guild.id });
+          await reconnectAuto.findOneAndDelete({ GuildId: interaction.guild.id });
           const embed = new EmbedBuilder()
-            .setDescription(
-              `**${client.emoji.disable} | 24/7 Mode Has Been Disabled**`
-            )
+            .setDescription(`**${client.emoji.disable} | 24/7 Mode Has Been Disabled**`)
             .setColor(client.color);
           return interaction.reply({ embeds: [embed] });
         }
         await reconnectAuto.create({
-          GuildId: interaction.reply.guild.id,
-          TextId: interaction.reply.channel.id,
-          VoiceId: interaction.reply.member.voice.channel.id,
+          GuildId: interaction.guild.id,
+          TextId: interaction.channel.id,
+          VoiceId: interaction.member.voice.channel.id,
         });
         await client.manager.createPlayer({
-          guildId: interaction.reply.guild.id,
-          textId: interaction.reply.channel.id,
-          voiceId: interaction.reply.member.voice.channel.id,
+          guildId: interaction.guild.id,
+          textId: interaction.channel.id,
+          voiceId: interaction.member.voice.channel.id,
           volume: 100,
           deaf: true,
-          shardId: interaction.reply.guild.shardId,
+          shardId: interaction.guild.shardId,
         });
         const embed = new EmbedBuilder()
-          .setDescription(
-            `**${client.emoji.enable} | 24/7 Mode Has Been Enabled**`
-          )
+          .setDescription(`**${client.emoji.enable} | 24/7 Mode Has Been Enabled**`)
           .setColor(client.color);
-
-          interaction.reply({ embeds: [embed] });
+      
+        interaction.reply({ embeds: [embed] });
       } catch (e) {
         console.log(e);
-        interaction.reply(`**An Error Occurred**`);
+        interaction.reply({ content: `**An Error Occurred**`, ephemeral: true });
       }
     }
   }

@@ -73,6 +73,7 @@ module.exports = {
         });
     },
 
+    // TODO : Fix Interaction Try/Catch
     prefix: {
         execute: async (client, interaction) => {
             if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageGuild)) return interaction.reply( `${client.emoji.cross} | You don't have permission`);
