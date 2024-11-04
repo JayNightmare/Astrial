@@ -9,6 +9,12 @@ const {
 } = require('../../utils-functions/utils-handlers/playlist/spotify.js');
 const updateQueue = require("../../handlers/setupQueue.js");
 
+function isSpotifyLink(url) {
+    // Regular expression to match open.spotify.com links
+    const regex = /^https?:\/\/(www\.)?open\.spotify\.com\/.+/;
+    return regex.test(url);
+}
+
 module.exports = {
     name: "playlist",
     aliases: ["pl"],
@@ -105,6 +111,16 @@ module.exports = {
             }
 
             const url = interaction.options.getString('url');
+
+            if (!isSpotifyLink(url)) {
+                const embed = new EmbedBuilder()
+                    .setDescription(
+                        "<:cross:1301129244855763027> | Please provide a valid Spotify playlist URL."
+                    )
+                    .setColor(client.color);
+                await interaction.reply({ embeds: [embed], ephemeral: true });
+            }
+
             const query = url;
 
             const { channel } = interaction.member.voice;
