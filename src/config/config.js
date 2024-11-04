@@ -29,10 +29,9 @@ module.exports = {
       // url: process.env.URL_SERVER_S,
       // auth: process.env.AUTH_SERVER_S,
       // secure: process.env.SECURE_SERVER_S,
-      name: process.env.NAME_SERVER,
-      url: process.env.URL_SERVER,
-      auth: process.env.AUTH_SERVER,
-      secure: process.env.SECURE_SERVER,
+      name: process.env.NAME_SERVER_N,
+      url: process.env.URL_SERVER_N,
+      auth: process.env.AUTH_SERVER_N,
     },
   ],
 };

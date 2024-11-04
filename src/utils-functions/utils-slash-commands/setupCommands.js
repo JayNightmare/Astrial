@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, Routes } = require("discord.js");
+const { SlashCommandBuilder, Routes, PermissionsBitField } = require("discord.js");
 require('dotenv').config(); // * Keep me above REST
 const rest = new REST({ version: '10' }).setToken(process.env.LIVE_TOKEN);
 
@@ -7,19 +7,96 @@ async function setupCommands() {
 
     const commands = [
         // //
-        // ? Rank Commands
         /*
-         * Author:
+         * Author Of Slash Commands:
          * @JayNightmare
         */
         // //
-        // ! Help
+        // ! Help Command
         // * Help Menu Command
         new SlashCommandBuilder()
             .setName('help')
-            .setDescription('Display help information for commands')
+            .setDescription('Display help information for commands'),
 
         // //
+
+        // ! Config Commands
+        // * 24/7 Command
+        new SlashCommandBuilder()
+            .setName("247")
+            .setDescription("24/7 in voice channel")
+            .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild),
+
+        new SlashCommandBuilder()
+            .setName('dj')
+            .setDescription('Become the DJ for your server')
+            .addStringOption(option =>
+                option.setName('option')
+                    .setDescription('DJ role for the server')
+                    .setRequired(true)
+                    .setChoices([
+                        { name: 'Add', value: 'add' },
+                        { name: 'Remove', value: 'remove' },
+                    ])
+            ),
+        
+        new SlashCommandBuilder()
+            .setName('prefix')
+            .setDescription('Change the prefix for the server')
+            .addStringOption(option =>
+                option.setName('prefix')
+                    .setDescription('New prefix for the server')
+                    .setRequired(true))
+            .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild),
+
+        new SlashCommandBuilder()
+            .setName('restrict')
+            .setDescription('Restricts the bot to a specific voice channel')
+            .addChannelOption(option =>
+                option.setName('channel')
+                    .setDescription('Voice channel to restrict the bot to')
+                    .setRequired(true))
+            .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild),
+
+        new SlashCommandBuilder()
+            .setName('unrestrict')
+            .setDescription('Unrestricts the bot from a specific voice channel')
+            .addChannelOption(option =>
+                option.setName('channel')
+                    .setDescription('Voice channel to unrestrict the bot from')
+                    .setRequired(true))
+            .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild),
+
+        new SlashCommandBuilder()
+            .setName('setup')
+            .setDescription('Setup the bot for the server')
+            .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild),
+            // TODO : Add Options
+        
+        // //
+
+        // ! Filter Commands
+        // TODO : Add Commands
+
+        // //
+
+        // ! Info Commands 
+        // TODO : Add Commands
+        
+        // // 
+
+        // ! Music Commands
+        // TODO : Add Commands
+
+        // //
+
+        // ! Owner Commands
+        // TODO : Add Commands
+
+        // //
+
+        // ! Premium Commands
+        // TODO : Add Commands
 
             // .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageRoles)
             // .addStringOption(option =>

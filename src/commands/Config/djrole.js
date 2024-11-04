@@ -76,4 +76,60 @@ module.exports = {
       console.log(error);
     }
   },
+
+  djRole: {
+    execute: async (client, interaction) => {
+      if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageGuild))
+        return interaction.reply(`${client.emoji.cross} | You don't have enough permissions!`);
+  
+      try {
+        const data = await dj.findOne({ guildId: interaction.guild.id });
+        const option = interaction.options.getString('option');
+  
+        if (option === "add") {
+          if (data) {
+            const embed = new EmbedBuilder()
+              .setColor(client.color)
+              .setDescription(`${client.emoji.cross} | You have already enabled the DJ role system.`);
+            return interaction.reply({ embeds: [embed] });
+          } else {
+            const role = interaction.guild.roles.cache.get(args[1]);
+            if (!role || isNaN(role)) {
+              const embed = new EmbedBuilder()
+                .setColor(client.color)
+                .setDescription(
+                  `${client.emoji.cross} | Role not found. Please provide a valid role ID.`
+                );
+              return interaction.reply({ embeds: [embed] });
+            }
+            await dj.create({
+              guildId: interaction.guild.id,
+              roleId: role.id,
+            });
+            const embed = new EmbedBuilder()
+              .setColor(client.color)
+              .setDescription(`${client.emoji.tick} | Successfully enabled the DJ role system.`);
+            return interaction.reply({ embeds: [embed] });
+          }
+        }
+  
+        if (option === "remove") {
+          if (!data) {
+            const embed = new EmbedBuilder()
+              .setColor(client.color)
+              .setDescription(`${client.emoji.cross} | You don't have a DJ role system in this server.`);
+            return interaction.reply({ embeds: [embed] });
+          }
+  
+          await dj.findOneAndDelete({ guildId: interaction.guild.id });
+          const embed = new EmbedBuilder()
+            .setColor(client.color)
+            .setDescription(`${client.emoji.tick} | Successfully deleted the DJ role system.`);
+          return interaction.reply({ embeds: [embed] });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
 };
