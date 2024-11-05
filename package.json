@@ -14,6 +14,7 @@
     "@top-gg/sdk": "^3.1.6",
     "anime-actions": "^2.1.1",
     "axios": "^1.7.7",
+    "boyfiee": "file:",
     "canvas": "^2.11.2",
     "chalk": "^4.1.0",
     "common-tags": "^1.8.2",

@@ -44,8 +44,22 @@ module.exports = async (client) => {
                     .setChoices([
                         { name: 'Add', value: 'add' },
                         { name: 'Remove', value: 'remove' },
-                    ])
-            ),
+                    ]))
+            .addRoleOption(option =>
+                option.setName('role')
+                    .setDescription('Role for the DJ')
+                    .setRequired(false)
+                    // .setAutocomplete(true)
+            )
+            .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageRoles),
+
+        // //
+
+        new SlashCommandBuilder()
+            .setName('view-dj')
+            .setDescription('Become the DJ for your server'),
+
+        // //
         
         new SlashCommandBuilder()
             .setName('prefix')
@@ -132,11 +146,15 @@ module.exports = async (client) => {
             //         .setDescription('Description of the role')
             //         .setRequired(true)),
     ].map(command => command.toJSON());
+    console.log('Commands Mapped');
 
     try {
+        console.log('Try to update commands');
         for (const guild of guilds.values()) {
             try {
                 // Call the setup function
+                console.log('Testing Rest Response');
+
                 await rest.put(
                     Routes.applicationGuildCommands(client.user.id, guild.id),
                     { body: commands },

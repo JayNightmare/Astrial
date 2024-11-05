@@ -77,14 +77,24 @@ module.exports = {
     }
   },
 
-  // TODO : Fix Interaction Try/Catch
+  // //
+
+  // <:greentick:1303309815812067369>
+
+  // * Slash Command Logic
   djRole: {
     execute: async (client, interaction) => {
-      if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageGuild))
-        return interaction.reply(`${client.emoji.cross} | You don't have enough permissions!`);
+      if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageGuild)) await interaction.reply(`${client.emoji.cross} | You don't have enough permissions!`);
   
       try {
-        const data = await dj.findOne({ guildId: interaction.guild.id });
+        console.log('>> Interaction Grabber For Guild Id <<');
+        const guildId = interaction.guild.id;
+        console.log('>> GUILDID PASSED <<');
+        console.log('>> DJ MongoDB Query <<');
+        const data = await dj.findOne({ guildId });
+        console.log('>> DATA PASSED <<');
+
+
         const option = interaction.options.getString('option');
   
         if (option === "add") {
@@ -92,25 +102,32 @@ module.exports = {
             const embed = new EmbedBuilder()
               .setColor(client.color)
               .setDescription(`${client.emoji.cross} | You have already enabled the DJ role system.`);
-            return interaction.reply({ embeds: [embed] });
+              await interaction.reply({ embeds: [embed] });
           } else {
-            const role = interaction.guild.roles.cache.get(args[1]);
+            const role = interaction.options.getRole('role');
+            console.log(`Role: ${role}`);
+            console.log(`Role ID: ${role.id}`);
+
             if (!role || isNaN(role)) {
               const embed = new EmbedBuilder()
                 .setColor(client.color)
                 .setDescription(
                   `${client.emoji.cross} | Role not found. Please provide a valid role ID.`
                 );
-              return interaction.reply({ embeds: [embed] });
+
+                await interaction.reply({ embeds: [embed] });
             }
+
             await dj.create({
-              guildId: interaction.guild.id,
+              guildId,
               roleId: role.id,
             });
+
             const embed = new EmbedBuilder()
               .setColor(client.color)
               .setDescription(`${client.emoji.tick} | Successfully enabled the DJ role system.`);
-            return interaction.reply({ embeds: [embed] });
+
+            await interaction.reply({ embeds: [embed] });
           }
         }
   
@@ -119,14 +136,41 @@ module.exports = {
             const embed = new EmbedBuilder()
               .setColor(client.color)
               .setDescription(`${client.emoji.cross} | You don't have a DJ role system in this server.`);
-            return interaction.reply({ embeds: [embed] });
+
+            await interaction.reply({ embeds: [embed] });
           }
   
-          await dj.findOneAndDelete({ guildId: interaction.guild.id });
+          await dj.findOneAndDelete({ guildId });
           const embed = new EmbedBuilder()
             .setColor(client.color)
             .setDescription(`${client.emoji.tick} | Successfully deleted the DJ role system.`);
-          return interaction.reply({ embeds: [embed] });
+
+            await interaction.reply({ embeds: [embed] });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  },
+
+  viewDjRole: {
+    execute: async (client, interaction) => {
+      if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageGuild)) await interaction.reply(`${client.emoji.cross} | You don't have enough permissions!`);
+
+      try {
+        const data = await dj.findOne({ guildId: interaction.guild.id });
+        if (!data) {
+          const embed = new EmbedBuilder()
+            .setColor(client.color)
+            .setDescription(` | You don't have a DJ role system in this server.`);
+
+          await interaction.reply({ embeds: [embed] });
+        } else {
+          const embed = new EmbedBuilder()
+            .setColor(client.color)
+            .setDescription(`DJ Role: <@&${data.roleId}>`);
+
+          await interaction.reply({ embeds: [embed] });
         }
       } catch (error) {
         console.log(error);

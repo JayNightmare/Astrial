@@ -131,6 +131,7 @@ module.exports = async (client) => {
             //  TODO : Config Commands
             if (commandName === '247') { console.log(`24/7 command ran`); await allDay7Command.alwaysInVC.execute(client, interaction); }
             if (commandName === 'dj') { console.log(`dj command ran`); await djrole.djRole.execute(client, interaction); }
+            if (commandName === 'view-dj') { console.log(`view dj command ran`); await djrole.viewDjRole.execute(client, interaction); }
             if (commandName === 'prefix') { console.log(`prefix command ran`); await prefixCommand.prefix.execute(client, interaction); }
             // if (commandName === 'restrict') { console.log(`restrict command ran`); await restrictCommand..execute(client, interaction); }
             // if (commandName === 'unrestrict') { console.log(`unrestrict command ran`); await unrestrictCommand..execute(client, interaction); }

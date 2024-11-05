@@ -89,6 +89,9 @@ module.exports = {
     }
   },
 
+  // //
+  
+  // * Slash Command:
   alwaysInVC: {
     execute: async (client, interaction) => {
       if (!interaction.member.voice.channel?.permissionsFor(interaction.guild.members.me).has(PermissionsBitField.Flags.Connect)) { return interaction.reply({ content: `${client.emoji.cross} | I don't have permission to join your voice channel!`, ephemeral: true }); }
