@@ -103,7 +103,7 @@ module.exports = {
         ], "System Information");
 
         const embed3 = createEmbed([
-            { name: "**__Developers__**", value: `**1.** [Sumant Rajan](https://discord.com/users/1203569730385084476) [ID: 1203569730385084476]` },
+            { name: "**__Developers__**", value: `**1.** [Sumant Rajan](https://discord.com/users/1203569730385084476) [ID: 1203569730385084476]\n**2.**[Jay](https://discord.com/users/373097473553727488) [ID: 373097473553727488]` },
             { name: "**__Owners__**", value: `**1.** [Zayar](https://discord.com/users/1001872778909204611) [ID: 1001872778909204611]\n**2.** [Noto](https://discord.com/users/728524094580064356) [ID: 728524094580064356]` },
             { name: "**__Supporters__**", value: `**1.** [Harxh](https://discord.com/users/1187983803352891483) [ID: 1187983803352891483]\n**2.** [Dreamtheog](https://discord.com/users/707598085181800498) [ID: 707598085181800498]` },
         ], "Team Information");
