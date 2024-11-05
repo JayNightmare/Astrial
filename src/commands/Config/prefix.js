@@ -73,15 +73,17 @@ module.exports = {
         });
     },
 
-    // TODO : Fix Interaction Try/Catch
+    // //
+
+    // ! Slash Command Logic
     prefix: {
         execute: async (client, interaction) => {
-            if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageGuild)) return interaction.reply( `${client.emoji.cross} | You don't have permission`);
+            if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageGuild)) await interaction.reply( `${client.emoji.cross} | You don't have permission`);
 
             const newPrefix = interaction.options.getString('prefix');
             const data = await pSchema.findOne({ serverId: interaction.guild.id });
             if (!newPrefix)
-                return interaction.reply({
+                await interaction.reply({
                     embeds: [
                         new EmbedBuilder()
                             .setColor(client.color)
@@ -92,7 +94,7 @@ module.exports = {
                     allowedMentions: { repliedUser: false },
                 });
             if (newPrefix.length > 5)
-                return interaction.reply({
+                await interaction.reply({
                     embeds: [
                         new EmbedBuilder()
                             .setColor(client.color)
