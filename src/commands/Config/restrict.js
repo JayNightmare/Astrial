@@ -98,7 +98,13 @@ module.exports = {
   
       // Ensure type is provided
       if (!type) {
-        await interaction.followUp(`${client.emoji.cross} | Please provide a type (e.g., \`text\`, \`voice\`, \`reset\`).`);
+          const embed = new EmbedBuilder()
+                .setColor(client.color)
+                .setDescription(
+                    `${client.emoji.cross} | Please provide a type (e.g., \`text\`, \`voice\`, \`reset\`)`
+                );
+  
+          await interaction.followUp({ embeds: [embed] });
       }
   
       // Validate the type
