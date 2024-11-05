@@ -135,7 +135,7 @@ module.exports = async (client) => {
             if (commandName === 'prefix') { console.log(`prefix command ran`); await prefixCommand.prefix.execute(client, interaction); }
             if (commandName === 'restrict') { console.log(`restrict command ran`); await restrictCommand.restrict.execute(client, interaction); }
             if (commandName === 'unrestrict') { console.log(`unrestrict command ran`); await unrestrictCommand.unrestrict.execute(client, interaction); }
-            // if (commandName === 'setup') { console.log(`setup command ran`); await setupCommand..execute(client, interaction); }
+            if (commandName === 'setup') { console.log(`setup command ran`); await setupCommand.setup.execute(client, interaction); }
             // //
             // // ? Filter Commands
             // // TODO : Filter Commands

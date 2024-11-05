@@ -109,8 +109,19 @@ module.exports = async (client) => {
         new SlashCommandBuilder()
             .setName('setup')
             .setDescription('Setup the bot for the server')
-            .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild),
-            // TODO : Add Options
+            .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild)
+            .addStringOption(option => 
+                option.setName('type')
+                    .setDescription('Create or Delete a setup?')
+                    .setRequired(true)
+                    .setChoices([
+                        { name: 'Create', value: 'create' },
+                        { name: 'Delete', value: 'delete' },
+                    ]))
+            .addChannelOption(option =>
+                option.setName('channel')
+                    .setDescription('Provide me a channel send the setup')
+                    .setRequired(false)),
         
         // //
 
