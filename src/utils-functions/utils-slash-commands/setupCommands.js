@@ -73,6 +73,15 @@ module.exports = async (client) => {
         new SlashCommandBuilder()
             .setName('restrict')
             .setDescription('Restricts the bot to a specific voice channel')
+            .addStringOption(option =>
+                option.setName('type')
+                    .setDescription('Type of restriction')
+                    .setRequired(true)
+                    .setChoices([
+                        { name: 'Text', value: 'text' },
+                        { name: 'Voice', value: 'voice' },
+                        { name: 'Reset', value: 'reset' },
+                    ]))
             .addChannelOption(option =>
                 option.setName('channel')
                     .setDescription('Voice channel to restrict the bot to')

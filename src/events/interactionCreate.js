@@ -133,7 +133,7 @@ module.exports = async (client) => {
             if (commandName === 'dj') { console.log(`dj command ran`); await djrole.djRole.execute(client, interaction); }
             if (commandName === 'view-dj') { console.log(`view dj command ran`); await djrole.viewDjRole.execute(client, interaction); }
             if (commandName === 'prefix') { console.log(`prefix command ran`); await prefixCommand.prefix.execute(client, interaction); }
-            // if (commandName === 'restrict') { console.log(`restrict command ran`); await restrictCommand..execute(client, interaction); }
+            if (commandName === 'restrict') { console.log(`restrict command ran`); await restrictCommand.restrict.execute(client, interaction); }
             // if (commandName === 'unrestrict') { console.log(`unrestrict command ran`); await unrestrictCommand..execute(client, interaction); }
             // if (commandName === 'setup') { console.log(`setup command ran`); await setupCommand..execute(client, interaction); }
             // //

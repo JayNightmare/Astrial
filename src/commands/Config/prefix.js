@@ -114,7 +114,7 @@ module.exports = {
             if (data) {
                 await data.updateOne({ prefix: newPrefix });
             }
-            interaction.reply({
+            await interaction.reply({
                 embeds: [
                     new EmbedBuilder()
                         .setColor(client.color)
