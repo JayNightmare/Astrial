@@ -1,5 +1,5 @@
 require('dotenv').config(); // * Keep me above REST
- 
+
 module.exports = {
   token: process.env.TEST_TOKEN,
   prefix: "A+",
