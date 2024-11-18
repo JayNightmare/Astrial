@@ -108,10 +108,10 @@ class MainClient extends Client {
     });
   }1
 
-  async loadUtils() {
-    require(`../utils-functions/utils-slash-commands/registerCommands.js`)(this);
-    console.log(`> setupCommands.js loaded !!`);
-  }
+  // async loadUtils() {
+  //   require(`../utils-functions/utils-slash-commands/registerCommands.js`)(this);
+  //   console.log(`> registerCommands.js loaded !!`);
+  // }
 
   connect() {
     return super.login(this.config.token);
