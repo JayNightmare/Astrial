@@ -77,7 +77,7 @@ module.exports = {
     // TODO : Add Slash Logic
     unrestrict: {
         execute: async (client, interaction) => {
-          try {
+        try {
             await interaction.deferReply();
 
             // Permission check

@@ -7,7 +7,7 @@ const {
 const dj = require("../../models/DjroleSchema.js");
 
 module.exports = {
-  name: "djrole",
+  name: "dj-role",
   aliases: ["dj"],
   description: "Setup DJ role for your server",
   userPermissions: PermissionFlagsBits.ManageGuild,

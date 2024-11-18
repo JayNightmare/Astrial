@@ -4,7 +4,7 @@ const {
 } = require("discord.js");
 const reconnectAuto = require("../../models/reconnect.js");
 
-const commandName = "alwaysInVC";
+const commandName = "always-in-vc";
 const commandDescription = "24/7 in voice channel";
 
 module.exports = {

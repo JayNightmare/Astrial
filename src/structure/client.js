@@ -109,7 +109,7 @@ class MainClient extends Client {
   }1
 
   async loadUtils() {
-    require(`../utils-functions/utils-slash-commands/setupCommands.js`)(this);
+    require(`../utils-functions/utils-slash-commands/registerCommands.js`)(this);
     console.log(`> setupCommands.js loaded !!`);
   }
 
