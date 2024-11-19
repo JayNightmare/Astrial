@@ -126,6 +126,12 @@ module.exports = async (client) => {
 
         for (const guild of guilds.values()) {
             try {
+                await rest.delete(
+                    Routes.applicationGuildCommands(client.user.id, guild.id),
+                    { body: [] }
+                );
+                console.log("Deleted old commands");
+
                 await rest.put(
                     Routes.applicationGuildCommands(client.user.id, guild.id),
                     { body: commands }
