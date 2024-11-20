@@ -9,7 +9,7 @@ const wait = require("wait");
   await client.ConnectMongo();
   //await wait(3000);
   await client.loadEvents();
-  // await client.loadUtils();
+  await client.loadSlashCommands();
   await client.connect();
 })();
 

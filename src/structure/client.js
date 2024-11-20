@@ -46,6 +46,9 @@ class MainClient extends Client {
       url: `${this.config.error_log}`,
     });
 
+    this.commands = new Collection(); // Add this for slash commands
+    this.cooldowns = new Map(); // For managing cooldowns
+
     // music system
 
     this.manager = new Kazagumo(
@@ -108,10 +111,31 @@ class MainClient extends Client {
     });
   }1
 
-  // async loadUtils() {
-  //   require(`../utils-functions/utils-slash-commands/registerCommands.js`)(this);
-  //   console.log(`> registerCommands.js loaded !!`);
-  // }
+  async loadSlashCommands() {
+    const commandsPath = `${process.cwd()}/src/commands`;
+    const commandFiles = fs.readdirSync(commandsPath);
+  
+    for (const folder of commandFiles) {
+      const folderPath = `${commandsPath}/${folder}`;
+      if (!fs.statSync(folderPath).isDirectory()) continue;
+  
+      const files = fs
+        .readdirSync(folderPath)
+        .filter((file) => file.endsWith(".js"));
+  
+      for (const file of files) {
+        const command = require(`${folderPath}/${file}`);
+        if (command.data && command.execute) {
+          this.commands.set(command.data.name, command); // Store the command
+          console.log(`> Loaded slash command: ${command.data.name}`);
+        } else {
+          console.warn(
+            `> Failed to load command ${file}: Missing "data" or "execute".`
+          );
+        }
+      }
+    }
+  }
 
   connect() {
     return super.login(this.config.token);
