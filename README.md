@@ -4,14 +4,14 @@
 <h1 align="center">Astrial Music Bot</h1>
 <div align="center">
     <p>Repo Stats</p>
-    <a href="https://github.com/JayNightmare/ASTRIAL/graphs/contributors">
-      <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/JayNightmare/ASTRIAL?color=2db94d" />
+    <a href="https://github.com/JayNightmare/Astrial/graphs/contributors">
+      <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/JayNightmare/Astrial?color=2db94d" />
     </a>
-    <a href="https://github.com/JayNightmare/ASTRIAL/issues">
-      <img alt="Issues" src="https://img.shields.io/github/issues/JayNightmare/ASTRIAL?color=0088ff" />
+    <a href="https://github.com/JayNightmare/Astrial/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/JayNightmare/Astrial?color=0088ff" />
     </a>
-    <a href="https://github.com/JayNightmare/ASTRIAL/pulls">
-      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/JayNightmare/ASTRIAL?color=0088ff" />
+    <a href="https://github.com/JayNightmare/Astrial/pulls">
+      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/JayNightmare/Astrial?color=0088ff" />
     </a>
     <br/> 
     <br/>
@@ -39,8 +39,8 @@
 <div align="center">
     <br/>
     <p>Dependency Checker</p>
-    <a href="https://github.com/JayNightmare/ASTRIAL/actions/workflows/node.js.yml">
-      <img alt="Node.js CI" src="https://github.com/JayNightmare/ASTRIAL/actions/workflows/node.js.yml/badge.svg"/>
+    <a href="https://github.com/JayNightmare/Astrial/actions/workflows/node.js.yml">
+      <img alt="Node.js CI" src="https://github.com/JayNightmare/Astrial/actions/workflows/node.js.yml/badge.svg"/>
     </a>
     <br/>
     <br/>
